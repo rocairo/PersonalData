@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      google.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Nadie', 94],
+          ['Trabajo', 35],
+          ['Familia', 23],
+          ['Amigos', 10],
+          ['Conocidos', 6]
+        ]);
+
+        var options = {'title':'Con quién interactúo más horas en la semana?',
+                       'width':800,
+                       'height':600};
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+    
+  </body>
+</html>
